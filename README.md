@@ -1,4 +1,4 @@
-# По лекции Репеты, Модуль 9.1
+# По лекции Репеты, Модуль 9.1 ""
 
 - Асинхронность в JavaScript
   - Однопоточность и многопоточность
@@ -20,3 +20,19 @@
   - Date.now() и new Date().getTime()
   - [Библиотека date-fns](https://date-fns.org/)
 - Мастерская: таймер
+
+# По лекции Репеты, Модуль 9.2 "Промисы"
+
+- Promise API
+  - Promise.prototype.then(result)
+  - Promise.prototype.catch(error)
+  - Promise.prototype.finally()
+- Цепочки промисов
+- Промисификация функций
+- Статические методы:
+  - Promise.all()
+  - Promise.race()
+- Мастерская: ипподром
+- Чтиво:
+  - [Промисы на примере бургер-вечеринки](https://habr.com/ru/company/nix/blog/323066/)
+  - [У нас проблемы с промисами](https://habr.com/ru/company/mailru/blog/269465/)
