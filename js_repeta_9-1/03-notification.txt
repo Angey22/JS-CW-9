@@ -1,0 +1,54 @@
+//! Видео - 0:49:55...1:01:15
+
+import '../css/common.css';
+
+/*
+ * Основные составляющие решения задачи:
+ * - Показываем и скрываем добавляя/удаляя класс is-visible
+ * - Скрываем через определённое время
+ * - Скрываем при клике
+ * - Не забываем чистить таймер
+ */
+
+// Создаем ссылку на элемент - <p>, находящийся в разметке HTML документа.
+const refs = {
+  notification: document.querySelector('.js-alert'),
+};
+
+// Создаем переменную-константу для хранения значения врменного интервала задержки.
+const NOTIFICATION_DELAY = 3000;
+
+// Создаем переменную для обнуления-удаления таймаута.
+let timeoutId = null;
+
+// "Вещаем" слушателя на тег <p>, и задаем колл-бек по регистрации соответствующего события.
+refs.notification.addEventListener('click', onNotificationClick);
+
+// Активируем функцию - отображения оповищения.
+showNotification();
+
+
+/*
+ * Функции
+ */
+
+// Колл-бек функция регистрации клика на оповещении, которая скрывает само оповищение и удаляет таймаут.
+function onNotificationClick() {
+  hideNotification();
+  clearTimeout(timeoutId);
+}
+
+// Функция отображения оповищения, устанавливающая соответствующий CSS класс в тег <p>, и автоматически закрывающая оповищение по таймеру.
+function showNotification() {
+  refs.notification.classList.add('is-visible');
+
+  timeoutId = setTimeout(() => {
+    console.log('Закрываем алерт автоматически чтобы не висел');
+    hideNotification();
+  }, NOTIFICATION_DELAY);
+}
+
+// Функция скрытия оповищения, удаляющая соответствующий CSS класс из тега <p>.
+function hideNotification() {
+  refs.notification.classList.remove('is-visible');
+}
